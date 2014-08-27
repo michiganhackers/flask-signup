@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Michigan Hackers - Create Event{% endblock %}
+
+{% block head %}
+{{ super() }}
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	<h1>Create Event</h1>
+</div>
+<div class="col-md-4">
+	<form class="form form-horizontal" method="post" role="form">
+		{{ form.hidden_tag() }}
+		{{ wtf.form_errors(form, hiddens="only") }}
+
+		{{ wtf.form_field(form.name) }}
+		{{ wtf.form_field(form.code) }}
+        <div class="form-group">
+	        <label class="control-label" for="date">Event Date and Time</label>
+            <div class='input-group date' id='datetimepicker1'>
+            	<!-- {{ form.date(type='text', class='form-control') }} -->
+                <input id="date" type='text' class="form-control" name="date" value/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+		{{ wtf.form_field(form.submit) }}
+	</form>
+</div>
+{% endblock %}
+{% block scripts %}
+
+{{ super() }}
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+{% endblock %}

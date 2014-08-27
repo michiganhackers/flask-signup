@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Michigan Hackers - Events{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	<h1>Events</h1>
+</div>
+<div>
+{% include "events/_events.html" %}
+</div>
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.events_list') }}
+</div>
+{% endif %}
+</div>
+{% endblock %}

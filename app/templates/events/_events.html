@@ -1,0 +1,12 @@
+<ul class="events">
+    {% for event in events %}
+    <li class="event">
+        <div class="event-content">
+            <div class="event-date">{{ moment(event.date).fromNow() }}</div>
+            <div class="event-name">
+                {{ event.name }}
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,8 @@
+<p>Hello {{ user.username }},</p>
+<p>Welcome to <b>Michigan Hackers</b>!</p>
+<p>To confirm your account please <a href="{{ url_for('auth.confirm_email', token=token, _external=True) }}">click here</a>.</p>
+<p>Alternatively, you can paste the following link in your browser's address bar:</p>
+<p>{{ url_for('auth.confirm_email', token=token, _external=True) }}</p>
+<p>Thanks,</p>
+<p>-Michigan Hackers</p>
+<p><small>Note: replies to this e-mail address are not monitored</small></p>

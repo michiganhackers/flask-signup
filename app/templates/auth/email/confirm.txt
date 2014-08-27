@@ -1,0 +1,11 @@
+Hello {{ user.username }},
+
+Welcome to Michigan Hackers!
+
+To confirm your account please click on the following link:
+
+{{ url_for('auth.confirm_email', token=token, _external=True) }}
+
+-Michigan Hackers
+
+Note: replies to this email address are not monitored.

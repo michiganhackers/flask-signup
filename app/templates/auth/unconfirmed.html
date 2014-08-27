@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Michigan Hackers - Confirm your account{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+	<h1>Hey, {{ current_user.username }}!</h1>
+	<h3>You haven't confirmed your account yet.</h3>
+	<p>
+		Before we can give you access to the site, we'll need you to confirm your account.
+		Check your inbox, you should have received an e-mail from us with a confirmation link.
+	</p>
+	<p>
+		Need a new confirmation e-mail?
+		<a href="{{ url_for('auth.resend_confirmation') }}">Click here</a>
+	</p>
+</div>
+{% endblock %}
